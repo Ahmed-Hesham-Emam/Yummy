@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Links -->
+    <link rel="stylesheet" href="src/dist/all.min.css" />
+    <link rel="stylesheet" href="src/dist/output.css" />
+
+    <!-- Icon -->
+    <link rel="shortcut icon" href="src/img/logo (1).png" type="image/x-icon" />
+    <title>Yummy</title>
+  </head>
+  <body class="bg-black relative">
+    <nav class="flex h-full fixed top-0 bottom-0 z-10 bg-black">
+      <div
+        class="navbar-menu flex flex-col w-[200px] ps-2 text-white justify-between"
+        style="display: none"
+      >
+        <div class="flex flex-col items-start">
+          <button id="btn-search" class="p-2">Search</button>
+          <button id="btn-Categories" class="p-2">Categories</button>
+          <button id="btn-Area" class="p-2">Area</button>
+          <button id="btn-Ingredients" class="p-2">Ingredients</button>
+          <button id="btn-Contact" class="p-2">Contact Us</button>
+        </div>
+        <div class="absolute bottom-1">
+          <i class="fa-brands fa-facebook"></i>
+          <i class="fa-brands fa-twitter"></i>
+          <i class="fa-solid fa-globe"></i>
+          <p>Copyright © 2019 All Rights Reserved.</p>
+        </div>
+      </div>
+      <div class="">
+        <div
+          class="container h-full flex bg-white flex-col w-[50px] justify-between items-center"
+        >
+          <img src="src/img/logo (1).png" class="px-2 pt-3" alt="" />
+          <div class="btn-menu cursor-pointer">
+            <i class="fa-solid fa-bars p-2 open text-3xl"></i>
+            <i class="fa-solid fa-x hidden close text-3xl"></i>
+          </div>
+          <div class="flex flex-col p-2">
+            <i class="fa-solid fa-globe p-1 cursor-pointer"></i>
+            <i class="fa-solid fa-share-nodes p-1 cursor-pointer"></i>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="loading">
+      <div class="lds-roller">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+
+    <div
+      id="meals"
+      class="display pt-4 ps-16 grid grid-cols-4 gap-1 pb-2"
+    ></div>
+
+    <div
+      id="details"
+      class="w-full absolute bg-black text-wrap text-white grid grid-cols-12 gap-4 ps-20 pt-6"
+    ></div>
+
+    <div id="search" class="ps-20" style="display: none">
+      <div class="flex justify-center items-center">
+        <input
+          type="text"
+          id="searchByName"
+          class="input-style"
+          placeholder="Search by name"
+        />
+        <input
+          type="text"
+          id="searchByFirstLetter"
+          class="input-style"
+          placeholder="Search by first letter"
+          maxlength="1"
+        />
+      </div>
+      <div
+        id="searchResults"
+        class="display ps-2 grid grid-cols-4 gap-1 pb-2"
+      ></div>
+    </div>
+
+    <div
+      id="Categories"
+      class="display ps-20 grid grid-cols-4 gap-1 pb-2"
+    ></div>
+
+    <div id="Area" class="display ps-12 pt-3 grid grid-cols-4 gap-1 pb-2"></div>
+
+    <div
+      id="Ingredients"
+      class="display ps-20 grid grid-cols-4 gap-1 pb-2"
+    ></div>
+
+    <div id="Contact" class="ps-16 pb-4 pt-20" style="display: none">
+      <form>
+        <div class="flex justify-center items-center">
+          <div class="flex flex-col justify-center items-center w-full">
+            <input
+              type="text"
+              id="name"
+              class="input-style"
+              placeholder="Enter your Name"
+              style="width: 90%"
+            />
+            <p
+              id="nameText"
+              class="hidden text-white py-2 px-3 bg-red-400 w-4/5"
+            >
+              Special characters and numbers not allowed
+            </p>
+          </div>
+
+          <div class="flex flex-col justify-center items-center w-full">
+            <input
+              type="email"
+              id="email"
+              class="input-style"
+              style="width: 90%"
+              placeholder="Enter your Email"
+            />
+            <p
+              id="emailText"
+              class="hidden text-white py-2 px-3 bg-red-400 w-4/5"
+            >
+              Email not valid *exemple@yyy.zzz
+            </p>
+          </div>
+        </div>
+
+        <div class="flex justify-center items-center">
+          <div class="flex flex-col justify-center items-center w-full">
+            <input
+              type="tel"
+              id="phone"
+              class="input-style"
+              placeholder="Enter your Phone"
+              style="width: 90%"
+            />
+            <p
+              id="phoneText"
+              class="hidden text-white py-2 px-3 bg-red-400 w-4/5"
+            >
+              Enter valid Phone Number
+            </p>
+          </div>
+
+          <div class="flex flex-col justify-center items-center w-full">
+            <input
+              type="number"
+              id="age"
+              class="input-style"
+              placeholder="Enter your Age"
+              style="width: 90%"
+            />
+            <p
+              id="ageText"
+              class="hidden text-white py-2 px-3 bg-red-400 w-4/5 m-0"
+            >
+              Must be 16 and above
+            </p>
+          </div>
+        </div>
+
+        <div class="flex justify-center items-center">
+          <div class="flex flex-col justify-center items-center w-full">
+            <input
+              type="password"
+              id="password"
+              class="input-style"
+              placeholder="Enter your password"
+              style="width: 90%"
+            />
+            <p
+              id="passwordText"
+              class="hidden text-white py-2 px-3 bg-red-400 w-4/5"
+            >
+              Enter valid password *Minimum eight characters, at least one
+              capital letter , one small letter and one number:*
+            </p>
+          </div>
+
+          <div class="flex flex-col justify-center items-center w-full">
+            <input
+              type="password"
+              id="confirmPassword"
+              class="input-style"
+              placeholder="Confirm your password"
+              style="width: 90%"
+            />
+            <p
+              id="confirmPasswordText"
+              class="hidden text-white py-2 px-3 bg-red-400 w-4/5"
+            >
+              Passwords doesn't match
+            </p>
+          </div>
+        </div>
+
+        <div class="flex justify-center items-center">
+          <button id="btn-submit" class="btn-submit" disabled>Submit</button>
+        </div>
+      </form>
+    </div>
+
+    <script src="src/js/jquery-3.7.1.js"></script>
+    <script src="src/js/index.js"></script>
+  </body>
+</html>
